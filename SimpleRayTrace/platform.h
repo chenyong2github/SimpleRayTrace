@@ -19,12 +19,12 @@
  *
  * This must be called before anything else!
  */
-HWND InitWindow(float width, float height);
+void InitWindow(float width, float height);
 
 /*
  * Pulls all events from the event queue and dispatches them.
  */
-void ProcessEvents();
+void Loop();
 
 /*
  * Sets a pixel in the window back buffer.
