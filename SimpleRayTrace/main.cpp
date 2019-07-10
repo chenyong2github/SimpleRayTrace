@@ -4,20 +4,51 @@
 #include "pch.h"
 #include "Windows.h"
 #include <iostream>
+#include <chrono>
 
-#include "SimpleRayTrace.h"
+#include "platform.h"
+#include "scene.h"
+#include "camera.h"
+
+static HWND window;
+
+auto _lastTime = std::chrono::high_resolution_clock::now();
+void RenderFrame()
+{
+	auto time = std::chrono::high_resolution_clock::now();
+	auto tDiff = std::chrono::duration<double, std::milli>(time - _lastTime).count();
+	float deltaTime = (float)tDiff / 1000.0f;
+	_lastTime = time;
+
+	//	std::cout << deltaTime << std::endl;
+}
+
+void Loop()
+{
+	MSG msg;
+	while (true)
+	{
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			if (msg.message == WM_QUIT)
+				break;
+
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+
+		if (!IsIconic(window)) {
+			RenderFrame();
+		}
+	}
+}
 
 int main()
 {
     std::cout << "Hello World!\n"; 
+	window = InitWindow(800, 600);
 
-	SimpleRayTrace* srt = new SimpleRayTrace();
-
-	srt->InitWindow(800, 600);
-	srt->RenderLoop();
-	srt->Destroy();
-
-	delete srt;
+	Loop();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

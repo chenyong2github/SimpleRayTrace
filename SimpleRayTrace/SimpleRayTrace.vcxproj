@@ -151,18 +151,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="graphics.h" />
+    <ClInclude Include="macros.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="SimpleRayTrace.h" />
+    <ClInclude Include="platform.h" />
+    <ClInclude Include="random_sort.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="ray_hit.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="shading.h" />
+    <ClInclude Include="sphere.h" />
+    <ClInclude Include="triangle.h" />
+    <ClInclude Include="vec3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="color.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SimpleRayTrace.cpp" />
+    <ClCompile Include="platform.cpp" />
+    <ClCompile Include="random_sort.cpp" />
+    <ClCompile Include="ray.cpp" />
+    <ClCompile Include="ray_hit.cpp" />
+    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="shading.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sphere.cpp" />
+    <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="vec3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
